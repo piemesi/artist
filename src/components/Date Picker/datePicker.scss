@@ -1,0 +1,22 @@
+@import 'colors';
+
+.input {
+  background-color: $white;
+  border-color: $lightGrey;
+  border-radius: 3px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  margin-bottom: 2em;
+
+  &:hover {
+    border-color: $black;
+  }
+}
+
+.ant-picker-focused {
+  border-color: $goldenSand;
+  box-shadow: none;
+}
+.ant-picker-range .ant-picker-active-bar {
+  background: $creamCan;
+}

@@ -1,0 +1,17 @@
+.events {
+  align-items: center;
+  background: #a4b0c7;
+  border: none;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  padding: 1em;
+
+  &__city {
+    color: white;
+    font-weight: 500;
+  }
+  &__time {
+    font-size: 12px;
+  }
+}

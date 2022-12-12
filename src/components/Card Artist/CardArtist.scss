@@ -1,0 +1,53 @@
+@import 'colors';
+.card {
+  flex: 0 0 470px;
+  margin-right: 2.5rem;
+  max-width: 20.5rem;
+  position: relative;
+  width: 100%;
+  &__button {
+    background-color: $goldenSand;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    margin: 1.437rem 0.875rem;
+    max-width: 6.562rem;
+    position: absolute;
+    width: 100%;
+    &_notification {
+      background-color: transparent;
+      left: 70%;
+      top: 35%;
+    }
+  }
+}
+
+.events {
+  align-items: center;
+  background: #a4b0c7;
+  border: none;
+  display: flex;
+  font-size: 0.875rem;
+  justify-content: space-between;
+  &__date {
+    &_noborder {
+      border-bottom: none;
+    }
+  }
+
+  &__city {
+    color: white;
+    font-weight: 500;
+    &_noborder {
+      border: none;
+    }
+  }
+  &__time {
+    font-size: 0.875rem;
+    &_noborder {
+      border: none;
+    }
+  }
+}

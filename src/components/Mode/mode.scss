@@ -1,0 +1,31 @@
+@import 'colors';
+
+.mode {
+  &__nav {
+    color: $black;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    &_left {
+      border-bottom-left-radius: 1rem;
+      border-top-left-radius: 1rem;
+    }
+
+    &_right {
+      border-bottom-right-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    &_active {
+      background-color: $goldenSand;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .mode {
+    margin-top: 2rem;
+  }
+}

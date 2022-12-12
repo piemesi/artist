@@ -1,0 +1,40 @@
+{
+  "countries": [
+    {
+      "id": 1,
+      "title": "string",
+      "cities": [
+        {
+          "id": 1,
+          "title": "string"
+        }
+      ]
+    }
+  ],
+  "genres": [
+    {
+      "id": 1,
+      "title": "string"
+    }
+  ],
+  "artists": [
+    {
+      "id": 1,
+      "title": "sting",
+      "main_img": "string",
+      "avatar_img": "string",
+      "yt_link": "string",
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": "string",
+      "profession": "string",
+      "genres": [
+        {
+          "id": 1,
+          "title": "string"
+        }
+      ]
+    }
+  ]
+}

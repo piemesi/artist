@@ -1,0 +1,16 @@
+@import 'colors';
+
+.wrapper {
+  display: flex;
+  &__cards {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1520px;
+    overflow: hidden;
+    transition: right 0.5s;
+    width: 100%;
+  }
+}

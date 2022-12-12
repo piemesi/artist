@@ -1,0 +1,48 @@
+@import 'colors';
+
+.table {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  min-width: 320px;
+  font-size: 0.875rem;
+
+  &__row {
+    &:last-child td,
+    &:last-child th {
+      border: 0;
+    }
+  }
+  &__artist {
+    font-weight: 400;
+  }
+  &__button {
+    background-color: $creamCan;
+    border-radius: 0.5rem;
+    border: none;
+    height: 1.5rem;
+    letter-spacing: 0.15px;
+    max-width: 5.56rem;
+    width: 100%;
+  }
+  &__city {
+    font-weight: 500;
+    margin-bottom: 0;
+  }
+  &__country {
+    color: $emperor;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 0;
+  }
+}
+.button-follow {
+  background-color: $waikawaGray;
+  border-radius: 0.5rem;
+  border: none;
+  color: $white;
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  height: 2.75rem;
+  margin-top: 1rem;
+  width: 100%;
+}

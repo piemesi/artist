@@ -1,0 +1,14 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 60em;
+    width: 100%;
+  }
+}
