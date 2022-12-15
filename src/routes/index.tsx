@@ -4,6 +4,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Artist } from '../pages/Artist/artist';
 import { useMediaQuery } from 'react-responsive';
+import { Profile } from '../pages/Profile/profile';
 
 export const ROUTER_PATHS = {
   ARTISTS: 'artists',
@@ -15,6 +16,8 @@ export const RoutingMap = () => {
     <Routes>
       <Route path='/' element={<Layout />}>
         <Route path={`/${ROUTER_PATHS.ARTISTS}/:genres`} element={<Artist />} />
+        <Route path={`/${ROUTER_PATHS.ARTISTS}/:genres/:profile`} element={<Profile />} />
+
         {/*<Route path={`/${ROUTER_PATHS.ARTISTS}/:genres/:dates`} element={<ArtistC />} />*/}
         <Route path={`/${ROUTER_PATHS.DATES}/:genres`} element={<Date />} />
       </Route>

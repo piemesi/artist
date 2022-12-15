@@ -3,8 +3,8 @@
   flex: 0 0 470px;
   margin-right: 2.5rem;
   max-width: 20.5rem;
-  position: relative;
   width: 100%;
+  position: relative;
   &__button {
     background-color: $goldenSand;
     border-radius: 0.5rem;
@@ -18,9 +18,11 @@
     width: 100%;
     &_notification {
       background-color: transparent;
-      left: 70%;
-      top: 35%;
+      left: 67%;
+      top: 56%;
     }
+  }
+  &__profile-link {
   }
 }
 

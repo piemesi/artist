@@ -9,19 +9,26 @@ import notification from 'icons/notification.svg';
 import { CardList } from '../../shared/cardList';
 
 import './CardArtist.scss';
+import { Link, useParams } from 'react-router-dom';
+import { ROUTER_PATHS } from '../../routes';
 
 type IProps = React.PropsWithChildren<{
   artistId: number;
   events: ICard[];
 }>;
+// const params = useParams();
 
 export const CardArtist = ({ artistId, events }: IProps) => {
   const artist: IArtist = events[0].artists.find(({ id }) => id === artistId)!;
 
   return (
-    <Card className='card'>
+    <Card className='card' sx={{ boxShadow: 0 }}>
       <Tooltip title={`Go to ${artist.title} page`} placement='top'>
-        <button className={b('card', 'button')}>{artist.title}</button>
+        <button className={b('card', 'button')}>
+          <Link to={artist.title} className={b('card', 'profile-link')}>
+            {artist.title}
+          </Link>
+        </button>
       </Tooltip>
       <Tooltip title={`Subscribe to ${artist.title} events`}>
         <button className={b('card', 'button', { notification: true })}>
@@ -34,6 +41,7 @@ export const CardArtist = ({ artistId, events }: IProps) => {
         image={artist.main_img}
         alt='artist'
         height='300'
+        className={b('card', 'avatar')}
       />
       <CardList events={events} />
     </Card>

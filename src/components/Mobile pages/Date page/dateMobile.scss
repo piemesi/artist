@@ -3,7 +3,8 @@
 .table {
   font-family: 'IBM Plex Sans';
   font-style: normal;
-  min-width: 320px;
+  max-width: 22rem;
+  width: 100%;
   font-size: 0.875rem;
 
   &__row {

@@ -3,7 +3,7 @@
 .table {
   font-family: 'IBM Plex Sans';
   font-style: normal;
-  min-width: 320px;
+  min-width: 21.5rem;
   font-size: 0.875rem;
 
   &__row {
@@ -45,4 +45,7 @@
   height: 2.75rem;
   margin-top: 1rem;
   width: 100%;
+}
+.slider {
+  display: flex;
 }

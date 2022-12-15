@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './carousel.scss';
-import arrowLeft from 'icons/big_arrow_left.svg';
-import arrowRight from 'icons/big_arrow_right.svg';
+import './sliderMobile.scss';
+import arrowLeft from 'icons/arrow_left.svg';
+import arrowRight from 'icons/arrow_right.svg';
 import b from 'b_';
 
-const Carousel = (props: any) => {
-  const { children, show } = props;
+export const SliderMobile = (props: any) => {
+  const { children } = props;
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [length, setLength] = useState(children.length);
@@ -15,7 +15,7 @@ const Carousel = (props: any) => {
   }, [children]);
 
   const next = () => {
-    if (currentIndex < length - show) {
+    if (currentIndex < length - 1) {
       setCurrentIndex((prevState: number) => prevState + 1);
     }
   };
@@ -27,31 +27,27 @@ const Carousel = (props: any) => {
   };
 
   return (
-    // <div className={b('carousel-container')}>
-    <div className={b('carousel')}>
+    <div className={b('slider')}>
       {currentIndex > 0 && (
-        <button onClick={prev} className={b('carousel', 'arrow-button')}>
+        <button onClick={prev} className={b('slider', 'arrow-button', { left: true })}>
           <img src={arrowLeft} />
         </button>
       )}
-      <div className={b('carousel', 'content-wrapper')}>
+      <div className={b('slider', 'wrapper')}>
         <div
-          className={`carousel-content show-${show}`}
+          className={`slider-content show-${1}`}
           style={{
-            transform: `translateX(-${currentIndex * (100 / show)}%)`,
+            transform: `translateX(-${currentIndex * (100 / 1)}%)`,
           }}
         >
           {children}
         </div>
       </div>
-      {currentIndex < length - show && (
-        <button onClick={next} className={b('carousel', 'arrow-button')}>
+      {currentIndex < length - 1 && (
+        <button onClick={next} className={b('slider', 'arrow-button', { right: true })}>
           <img src={arrowRight} />
         </button>
       )}
     </div>
-    // </div>
   );
 };
-
-export default Carousel;

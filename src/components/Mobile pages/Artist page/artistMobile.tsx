@@ -3,35 +3,33 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { ICard } from '../../../interfaces';
+import { IArtist, ICard } from '../../../interfaces';
 import b from 'b_';
-import './artistMobile.scss';
-import { Slider } from '../Slider/slider';
 import dayjs from 'dayjs';
+import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 
-function createData(date: string, time: string, place: string) {
-  return { date, time, place };
-}
+import './artistMobile.scss';
 
-const rows = [
-  createData('02 декабря', '18:00', 'Амстердам'),
-  createData('03 декабря', '19:00', 'Гаага'),
-  createData('04 декабря', '20:00', 'Эйндховен'),
-  createData('05 декабря', '18:30', 'Утрехт'),
-  createData('06 декабря', '18:00', 'Амстердам'),
-];
+type IProps = React.PropsWithChildren<{
+  artistId: number;
+  events: ICard[];
+}>;
+export const ArtistMobile = ({ artistId, events }: IProps) => {
+  const artist: IArtist = events[0].artists.find(({ id }) => id === artistId)!;
 
-export const ArtistMobile = (events: any) => {
   return (
-    <>
-      <Slider artists={events.events.map((card: ICard) => card.artists[0])} />
+    <div>
+      <Stack direction='column' spacing={2} alignItems='center'>
+        <Avatar alt='current' src={artist.main_img} />
+        <span>{artist.title}</span>
+      </Stack>
       <TableContainer component={Paper}>
         <Table aria-label='simple table' className={b('table')}>
           <TableBody className={b('table', 'body')}>
-            {events.events.map((row: ICard) => (
+            {events.map((row: ICard) => (
               <TableRow className={b('table', 'row')} key={row.id}>
                 <TableCell component='th' scope='row'>
                   <h3 className={b('table', 'date')}>{dayjs(row.when).format('D MMMM')}</h3>
@@ -51,6 +49,6 @@ export const ArtistMobile = (events: any) => {
         </Table>
       </TableContainer>
       <button className={b('button-follow')}>Follow the Artist</button>
-    </>
+    </div>
   );
 };

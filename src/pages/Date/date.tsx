@@ -5,6 +5,8 @@ import { DateMobile } from '../../components/Mobile pages/Date page/dateMobile';
 import { useMediaQuery } from 'react-responsive';
 import Carousel from '../../components/Carousel cards/carousel';
 import dayjs from 'dayjs';
+import b from 'b_';
+import { SliderMobile } from '../../components/Mobile pages/SliderMobile/sliderMobile';
 
 export const Date = () => {
   const [events, setEvents] = useState<ICard[]>([]);
@@ -30,8 +32,6 @@ export const Date = () => {
     );
   }, [events]);
 
-  console.log({ eventsByDay });
-
   const isBigScreen = useMediaQuery({ query: '(min-width: 1050px)' });
 
   return (
@@ -45,14 +45,16 @@ export const Date = () => {
           </Carousel>
         </div>
       ) : (
-        <DateMobile events={events} />
+        <section className={b('wrapper')}>
+          <div className={b('wrapper', 'cards')}>
+            <SliderMobile>
+              {Object.keys(eventsByDay).map((day) => (
+                <DateMobile when={day} events={eventsByDay[day]} key={day} />
+              ))}
+            </SliderMobile>
+          </div>
+        </section>
       )}
     </>
-    // <div className='cards'>
-    //   {/*{dict.map((card: ICard) => (*/}
-    //   {/*  <CardDate key={card.id} {...card} />*/}
-    //   {/*))}*/}
-    //
-    // </div>
   );
 };
