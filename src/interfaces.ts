@@ -54,3 +54,16 @@ export interface IArtist {
     },
   ];
 }
+
+export enum RouterPath {
+  ARTISTS = 'artists',
+  DATES = 'dates',
+}
+
+interface IUrlRoute {
+  mode: RouterPath;
+  genres: 'all' | string;
+  period: 'all' | string;
+}
+
+export type IUrlRouteParams = keyof IUrlRoute;

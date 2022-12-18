@@ -10,10 +10,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-import { ROUTER_PATHS } from '../../routes';
-import { DatesPicker } from '../Date Picker/datePicker';
+import { DatesPicker } from '../DatePicker/date-picker';
 
 import './filters.scss';
+import { RouterPath } from '../../interfaces';
 
 const genresList = [
   {
@@ -54,7 +54,7 @@ export const Filters = () => {
     } = event;
 
     const selected = typeof value === 'string' ? value.split(',') : value;
-    const url = `/${ROUTER_PATHS.ARTISTS}/${
+    const url = `/${RouterPath.ARTISTS}/${params.period}/${
       selected.length === genresList.length || !selected.length ? 'all' : selected.join(',')
     }`;
 
@@ -63,7 +63,7 @@ export const Filters = () => {
 
   return (
     <section className={b('filters')}>
-      <FormControl sx={{ m: 1, width: 300 }}>
+      <FormControl>
         <InputLabel id='demo-multiple-chip-label'>Жанр</InputLabel>
         <Select
           labelId='demo-multiple-chip-label'

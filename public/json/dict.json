@@ -20,19 +20,91 @@
   "artists": [
     {
       "id": 1,
-      "title": "sting",
-      "main_img": "string",
+      "title": "Сергей Орлов",
+      "main_img": "https://icdn.lenta.ru/images/2022/01/20/12/20220120123610279/square_320_1aab847418ed81bff84a1f7feb9fc3f7.jpg",
       "avatar_img": "string",
-      "yt_link": "string",
+      "yt_link": null,
       "fb_link": "string",
       "ig_link": "string",
       "web_link": "string",
-      "description": "string",
-      "profession": "string",
+      "description": null,
+      "profession": "Стендап комик",
       "genres": [
         {
           "id": 1,
-          "title": "string"
+          "title": "Stand-up"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Noize MC",
+      "main_img": "data:image/jpeg;base64,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",
+      "avatar_img": "string",
+      "yt_link": null,
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": null,
+      "profession": "Стендап комик",
+      "genres": [
+        {
+          "id": 1,
+          "title": "Stand-up"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Face",
+      "main_img": "https://utv.ru/media/og_image/face-04.jpg",
+      "avatar_img": "string",
+      "yt_link": null,
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": null,
+      "profession": "Стендап комик",
+      "genres": [
+        {
+          "id": 1,
+          "title": "Stand-up"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Денис Чужой",
+      "main_img": "https://biogr.net/wp-content/uploads/2021/11/vrt.jpg",
+      "avatar_img": "string",
+      "yt_link": null,
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": null,
+      "profession": "Стендап комик",
+      "genres": [
+        {
+          "id": 1,
+          "title": "Stand-up"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Алексндр Долгополов",
+      "main_img": "https://n1s2.hsmedia.ru/93/43/a3/9343a3ee69e9d3a26a64983966d11afa/480x497_0xac120003_16981973131579787188.jpg",
+      "avatar_img": "string",
+      "yt_link": null,
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": null,
+      "profession": "Стендап комик",
+      "genres": [
+        {
+          "id": 1,
+          "title": "Stand-up"
         }
       ]
     }

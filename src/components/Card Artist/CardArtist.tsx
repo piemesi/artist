@@ -9,14 +9,12 @@ import notification from 'icons/notification.svg';
 import { CardList } from '../../shared/cardList';
 
 import './CardArtist.scss';
-import { Link, useParams } from 'react-router-dom';
-import { ROUTER_PATHS } from '../../routes';
+import { Link } from 'react-router-dom';
 
 type IProps = React.PropsWithChildren<{
   artistId: number;
   events: ICard[];
 }>;
-// const params = useParams();
 
 export const CardArtist = ({ artistId, events }: IProps) => {
   const artist: IArtist = events[0].artists.find(({ id }) => id === artistId)!;
@@ -25,7 +23,7 @@ export const CardArtist = ({ artistId, events }: IProps) => {
     <Card className='card' sx={{ boxShadow: 0 }}>
       <Tooltip title={`Go to ${artist.title} page`} placement='top'>
         <button className={b('card', 'button')}>
-          <Link to={artist.title} className={b('card', 'profile-link')}>
+          <Link to={`/profile/${artist.id}`} className={b('card', 'profile-link')}>
             {artist.title}
           </Link>
         </button>

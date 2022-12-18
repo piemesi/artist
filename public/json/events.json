@@ -125,8 +125,8 @@
           "profession": "Стендап комик",
           "genres": [
             {
-              "id": 1,
-              "title": "Stand-up"
+              "id": 2,
+              "title": "Music"
             }
           ]
         }
@@ -191,8 +191,8 @@
           "profession": "Стендап комик",
           "genres": [
             {
-              "id": 1,
-              "title": "Stand-up"
+              "id": 2,
+              "title": "Music"
             }
           ]
         }
