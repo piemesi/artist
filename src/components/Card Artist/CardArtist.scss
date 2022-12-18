@@ -23,6 +23,11 @@
     }
   }
   &__profile-link {
+    text-decoration: none;
+    color: $black;
+    &:hover {
+      color: $emperor;
+    }
   }
 }
 
