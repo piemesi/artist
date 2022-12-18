@@ -12,7 +12,7 @@ type IProps = React.PropsWithChildren<{
   events: ICard[];
 }>;
 export const CardDate = ({ when, events }: IProps) => (
-  <Card className='card' sx={{ boxShadow: 0 }}>
+  <Card className='card' sx={{ boxShadow: 0, borderRadius: 4 }}>
     <button className={b('card', 'button')}>{dayjs(when).format('D MMMM')}</button>
     <button className={b('card', 'button', { notification: true })}>
       <img src={notification} />

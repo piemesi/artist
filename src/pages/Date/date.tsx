@@ -37,13 +37,15 @@ export const Date = () => {
   return (
     <>
       {isBigScreen ? (
-        <div className='cards'>
-          <Carousel show={4}>
-            {Object.keys(eventsByDay).map((day) => (
-              <CardDate when={day} events={eventsByDay[day]} key={day} />
-            ))}
-          </Carousel>
-        </div>
+        <section className={b('wrapper')}>
+          <div className={b('wrapper', 'cards')}>
+            <Carousel show={4}>
+              {Object.keys(eventsByDay).map((day) => (
+                <CardDate when={day} events={eventsByDay[day]} key={day} />
+              ))}
+            </Carousel>
+          </div>
+        </section>
       ) : (
         <section className={b('wrapper')}>
           <div className={b('wrapper', 'cards')}>
