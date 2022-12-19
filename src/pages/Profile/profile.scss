@@ -1,55 +1,236 @@
 @import 'colors';
 .profile {
-  background-color: $c;
-  width: 100%;
-  height: 32rem;
-}
-.top {
   display: flex;
   flex-direction: column;
+}
+.top-wrapper {
+  position: relative;
+}
+.top {
+  background: $transparentPurple;
+  display: flex;
+  flex-direction: column;
+  height: 32rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+
   &__wrapper {
-    display: flex;
     align-items: center;
-    justify-content: flex-start;
+    display: flex;
     height: 20rem;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-left: 4.75rem;
   }
   &__avatar {
-    max-width: 14.5rem;
-    width: 100%;
-    max-height: 14.5rem;
     height: 100%;
     margin: 0 1rem;
+    max-height: 14.5rem;
+    max-width: 14.5rem;
+    width: 100%;
   }
   &__title {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
     margin-left: 2rem;
+    max-height: 14.25rem;
   }
   &__name {
-    font-weight: 600;
     font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.75rem;
     margin: 0;
   }
   &__profession {
-    font-weight: 400;
-    font-size: 2rem;
     color: $white;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    margin: 2rem 0 3rem;
   }
   &__follow-btn {
-    border: none;
+    align-items: center;
     background-color: $goldenSand;
-    color: $black;
-    font-weight: 600;
-    font-size: 1rem;
-    max-width: 11.3rem;
-    width: 100%;
-    height: 2.43rem;
     border-radius: 1.25rem;
+    border: none;
+    color: $black;
+    display: flex;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 2.43rem;
+    max-width: 11.3rem;
+  }
+  &__favorite {
+    cursor: pointer;
+    display: flex;
+    margin: 0 1rem 0 0.5rem;
   }
   &__description {
-    max-width: 37rem;
+    font-size: 1.5rem;
+    line-height: 2.812rem;
+    margin-left: 4.75rem;
+    max-width: 60rem;
+  }
+}
+
+.bottom {
+  margin-top: 36rem;
+  margin-left: 4rem;
+  max-width: 63.31rem;
+  &__title {
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 2.8125rem;
+    letter-spacing: 0.01em;
+  }
+  &__break {
+    color: $cadetBlue;
+    border-width: 0.5px;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__left-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 20rem;
     width: 100%;
-    margin-left: 2rem;
+  }
+  &__date {
+    display: flex;
+    align-items: center;
+  }
+  &__place {
+    display: flex;
+    flex-direction: column;
+  }
+  &__city,
+  &__location {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.75px;
+  }
+  &__city {
+    color: $emperor;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+  &__button {
+    max-width: 11.56rem;
+    width: 100%;
+    background-color: $creamCan;
+    border: none;
+    border-radius: 0.9375rem;
+    height: 2.625rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    cursor: pointer;
+  }
+}
+.date {
+  &__day {
+    font-size: 3rem;
+    line-height: 1rem;
+  }
+  &__week-day,
+  &__month {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+  }
+  &__week-day {
+    color: $burntSienna;
+    margin-top: 0.35rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .profile {
+  }
+  .top {
+    height: 17.375rem;
+
+    &__wrapper {
+      flex-direction: column;
+      margin-top: 5rem;
+      position: relative;
+      margin-left: 0;
+    }
+    &__avatar {
+      max-height: 7.4375rem;
+      max-width: 7.4375rem;
+    }
+    &__name {
+      font-size: 1.3125rem;
+      line-height: 1.75rem;
+    }
+    &__title {
+      justify-content: inherit;
+      margin-left: 0;
+      align-items: center;
+    }
+    &__profession {
+      display: none;
+    }
+    &__follow-btn {
+      font-size: 0.75rem;
+      max-width: 8.9918rem;
+      position: absolute;
+      top: 89%;
+    }
+    &__favorite {
+      margin: 0 0.3rem;
+      max-width: 0.9375rem;
+    }
+    &__description {
+      display: none;
+    }
+  }
+
+  .bottom {
+    margin-top: 20rem;
+  }
+}
+@media (max-width: 700px) {
+  .bottom {
+    margin-left: 0;
+    &__title {
+      font-size: 1rem;
+    }
+    &__left-wrapper {
+      max-width: 13rem;
+    }
+    &__button {
+      max-width: 6.625rem;
+      height: 1.5rem;
+      font-size: 0.75rem;
+    }
+    &__city,
+    &__location {
+      font-size: 0.75rem;
+    }
+  }
+  .date {
+    &__day {
+      font-size: 2.25rem;
+    }
+    &__week-day,
+    &__month {
+      font-size: 0.55rem;
+      margin-left: -2.5rem;
+    }
+
+    &__week-day {
+      margin-bottom: 2rem;
+    }
   }
 }

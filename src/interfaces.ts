@@ -55,6 +55,11 @@ export interface IArtist {
   ];
 }
 
+export interface IGenre {
+  id: number;
+  title: string;
+}
+
 export enum RouterPath {
   ARTISTS = 'artists',
   DATES = 'dates',
