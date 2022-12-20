@@ -6,9 +6,9 @@ import Tooltip from '@mui/material/Tooltip';
 import b from 'b_';
 import { IArtist, ICard } from '../../interfaces';
 import notification from 'icons/notification.svg';
-import { CardList } from '../../shared/cardList';
+import { CardList } from '../../shared/card-list';
 
-import './CardArtist.scss';
+import './card-artist.scss';
 import { Link } from 'react-router-dom';
 
 type IProps = React.PropsWithChildren<{

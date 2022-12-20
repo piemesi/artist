@@ -6,11 +6,7 @@ import Avatar from '@mui/material/Avatar';
 import favoriteIcon from 'icons/favorite_icon.svg';
 
 import './profile.scss';
-import TableBody from '@mui/material/TableBody';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
 import dayjs from 'dayjs';
-import Table from '@mui/material/Table';
 
 export const Profile = () => {
   const { id } = useParams();
@@ -23,6 +19,7 @@ export const Profile = () => {
       .then((res) => res.json())
       .then((res) => {
         setEvents(res.events);
+        console.log({ res });
       });
 
     fetch('/json/dict.json')
@@ -35,9 +32,24 @@ export const Profile = () => {
         }
       });
   }, [id]);
+  useEffect(() => {
+    setEventsByArtist(
+      events.reduce((acc, event: ICard) => {
+        const eventArtist = event.artists;
 
-  console.log({ id });
+        eventArtist.forEach((artist1) => {
+          acc[artist1.id] = acc[artist1.id] || [];
+          acc[artist1.id].push(event);
+        });
 
+        return acc;
+      }, {} as { [day: string]: ICard[] }),
+    );
+  }, [events]);
+
+  const eventsByArtistArr = Object.keys(eventsByArtist).map((artistId) => eventsByArtist[artistId]);
+  // const artist2: IArtist = eventsByArtistArr[0].artists.find(({ id }) => id === artistId)!;
+  const arr = Object.keys(eventsByArtist).map((artistId) => eventsByArtist[id!]);
   return (
     <section className={b('profile')}>
       {artist && (
@@ -68,31 +80,34 @@ export const Profile = () => {
           </span>
         </div>
       )}
+
       <div className={b('bottom')}>
         <span className={b('bottom', 'title')}>{`${artist?.title} - концерты`}</span>
-        <div className={b('bottom', 'content')}>
-          {events.map((row: ICard) => (
-            <>
-              <hr className={b('bottom', 'break')} />
+        <div key={id} className={b('bottom', 'content')}>
+          {Object.keys(eventsByArtist).map((artistId) =>
+            eventsByArtist[id!].map((card) => (
+              <div key={card.id}>
+                <hr className={b('bottom', 'break')} />
 
-              <div key={row.id} className={b('bottom', 'row')}>
-                <div className={b('bottom', 'left-wrapper')}>
-                  <div className={b('bottom', 'date')}>
-                    <p className={b('date', 'day')}>{dayjs(row.when).format('DD')}</p>
-                    <div>
-                      <p className={b('date', 'week-day')}>{dayjs(row.when).format('dddd')}</p>
-                      <p className={b('date', 'month')}>{dayjs(row.when).format('MMMM')}</p>
+                <div className={b('bottom', 'row')}>
+                  <div className={b('bottom', 'left-wrapper')}>
+                    <div className={b('bottom', 'date')}>
+                      <p className={b('date', 'day')}>{dayjs(card.when).format('DD')}</p>
+                      <div>
+                        <p className={b('date', 'week-day')}>{dayjs(card.when).format('dddd')}</p>
+                        <p className={b('date', 'month')}>{dayjs(card.when).format('MMMM')}</p>
+                      </div>
+                    </div>
+                    <div className={b('bottom', 'place')}>
+                      <h3 className={b('bottom', 'city')}>{card.place.city.title}</h3>
+                      <h3 className={b('bottom', 'location')}>{card.place.title}</h3>
                     </div>
                   </div>
-                  <div className={b('bottom', 'place')}>
-                    <h3 className={b('bottom', 'city')}>{row.place.city.title}</h3>
-                    <h3 className={b('bottom', 'location')}>{row.place.title}</h3>
-                  </div>
+                  <button className={b('bottom', 'button')}>Купить билет</button>
                 </div>
-                <button className={b('bottom', 'button')}>Купить билет</button>
               </div>
-            </>
-          ))}
+            )),
+          )}
         </div>
       </div>
     </section>

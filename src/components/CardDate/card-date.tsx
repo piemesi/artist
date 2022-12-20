@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import b from 'b_';
 import dayjs from 'dayjs';
 import notification from 'icons/notification.svg';
-import { CardList } from '../../shared/cardList';
+import { CardList } from '../../shared/card-list';
 import { ICard } from '../../interfaces';
 
 type IProps = React.PropsWithChildren<{

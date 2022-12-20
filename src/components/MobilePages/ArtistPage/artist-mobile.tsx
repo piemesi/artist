@@ -11,7 +11,7 @@ import dayjs from 'dayjs';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 
-import './artistMobile.scss';
+import './artist-mobile.scss';
 
 type IProps = React.PropsWithChildren<{
   artistId: number;

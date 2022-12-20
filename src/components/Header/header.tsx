@@ -3,7 +3,7 @@ import b from 'b_';
 
 import { Mode } from 'components/Mode/mode';
 import { Search } from 'components/Search/search';
-import { SwitchLabel } from '../SwitchLabels/switchLabel';
+import { SwitchLabel } from '../SwitchLabels/switch-label';
 import './header.scss';
 
 export const Header = () => {

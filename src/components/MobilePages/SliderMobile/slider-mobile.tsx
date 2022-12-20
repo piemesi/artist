@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './sliderMobile.scss';
+import './slider-mobile.scss';
 import arrowLeft from 'icons/arrow_left.svg';
 import arrowRight from 'icons/arrow_right.svg';
 import b from 'b_';

@@ -9,7 +9,7 @@ import { ICard } from '../../../interfaces';
 import b from 'b_';
 import dayjs from 'dayjs';
 
-import './dateMobile.scss';
+import './date-mobile.scss';
 
 type IProps = React.PropsWithChildren<{
   when: string;

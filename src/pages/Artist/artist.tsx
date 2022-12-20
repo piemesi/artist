@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CardArtist } from '../../components/Card Artist/CardArtist';
+import { CardArtist } from '../../components/CardArtist/card-artist';
 
 import { ICard, IUrlRouteParams } from '../../interfaces';
-import { ArtistMobile } from '../../components/Mobile pages/Artist page/artistMobile';
+import { ArtistMobile } from '../../components/MobilePages/ArtistPage/artist-mobile';
 import { useMediaQuery } from 'react-responsive';
 import b from 'b_';
-import Carousel from '../../components/Carousel cards/carousel';
-import { SliderMobile } from '../../components/Mobile pages/SliderMobile/sliderMobile';
+import Carousel from '../../components/CarouselCards/carousel';
+import { SliderMobile } from '../../components/MobilePages/SliderMobile/slider-mobile';
 
 import './artist.scss';
 import { useParams } from 'react-router-dom';
@@ -75,7 +75,6 @@ export const Artist = () => {
   }, [events, genres, period]);
 
   const isBigScreen = useMediaQuery({ query: '(min-width: 1050px)' });
-
   return (
     <>
       {isBigScreen ? (

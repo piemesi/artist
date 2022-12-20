@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { CardDate } from '../../components/Card Date/cardDate';
+import { CardDate } from '../../components/CardDate/card-date';
 import { ICard } from '../../interfaces';
-import { DateMobile } from '../../components/Mobile pages/Date page/dateMobile';
+import { DateMobile } from '../../components/MobilePages/DatePage/date-mobile';
 import { useMediaQuery } from 'react-responsive';
-import Carousel from '../../components/Carousel cards/carousel';
+import Carousel from '../../components/CarouselCards/carousel';
 import dayjs from 'dayjs';
 import b from 'b_';
-import { SliderMobile } from '../../components/Mobile pages/SliderMobile/sliderMobile';
+import { SliderMobile } from '../../components/MobilePages/SliderMobile/slider-mobile';
 
 export const Date = () => {
   const [events, setEvents] = useState<ICard[]>([]);
