@@ -26,7 +26,7 @@ export const ArtistMobile = ({ artistId, events }: IProps) => {
         <Avatar alt='current' src={artist.main_img} />
         <span>{artist.title}</span>
       </Stack>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ boxShadow: 0 }}>
         <Table aria-label='simple table' className={b('table')}>
           <TableBody className={b('table', 'body')}>
             {events.map((row: ICard) => (

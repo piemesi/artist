@@ -4,36 +4,9 @@ export interface ICard {
   id: number;
   artists: IArtist[];
   when: Dayjs;
-  place: {
-    id: number;
-    title: string;
-    address: string;
-    lat: number;
-    lng: number;
-    city: {
-      id: number;
-      title: string;
-      country: {
-        id: number;
-        title: string;
-      };
-    };
-  };
-  cities: [
-    {
-      id: number;
-      title: string;
-    },
-  ];
-  ticket: {
-    web_link: string;
-    title: string;
-    price_from: number;
-    currency: {
-      id: number;
-      title: string;
-    };
-  };
+  place: IPlace;
+  cities: ICity[];
+  ticket: ITicket;
 }
 
 export interface IArtist {
@@ -47,12 +20,38 @@ export interface IArtist {
   web_link: string | null;
   description: string | null;
   profession: string;
-  genres: [
-    {
+  genres: IGenre[];
+}
+
+export interface ITicket {
+  web_link: string;
+  title: string;
+  price_from: number;
+  currency: {
+    id: number;
+    title: string;
+  };
+}
+
+export interface IPlace {
+  id: number;
+  title: string;
+  address: string;
+  lat: number;
+  lng: number;
+  city: {
+    id: number;
+    title: string;
+    country: {
       id: number;
       title: string;
-    },
-  ];
+    };
+  };
+}
+
+export interface ICity {
+  id: number;
+  title: string;
 }
 
 export interface IGenre {

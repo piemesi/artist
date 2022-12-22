@@ -20,7 +20,7 @@ export const DateMobile = ({ when, events }: IProps) => {
   return (
     <div>
       <h3>{dayjs(when).format('D MMMM')}</h3>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ boxShadow: 0 }}>
         <Table aria-label='simple table' className={b('table')}>
           <TableBody className={b('table', 'body')}>
             {events.map((row: ICard) => (
