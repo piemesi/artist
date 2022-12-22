@@ -11,7 +11,7 @@ import { IUrlRouteParams, RouterPath } from '../../interfaces';
 
 export const DatesPicker = () => {
   const navigate = useNavigate();
-  const { period, genres, mode } = useParams<IUrlRouteParams>();
+  const { period, genres, mode, countries } = useParams<IUrlRouteParams>();
 
   const [startDate, setStartDate] = React.useState<string | null>('');
   const [endDate, setEndDate] = React.useState<string | null>('');
@@ -28,14 +28,16 @@ export const DatesPicker = () => {
   //   }
   // }, [params]);
 
-  console.log('DP', { period, genres });
+  console.log('DP', { period, genres, countries });
 
   const handleChange = (dates: RangeValue<Dayjs>, formatString: string[]) => {
     const start = Object.values(dates!)[0]?.format('YYMD');
     setStartDate(start!);
     const end = Object.values(dates!)[1]?.format('YYMD');
     setEndDate(end!);
-    const url = `/${mode || RouterPath.ARTISTS}/${start}-${end}/${genres || 'all'}`;
+    const url = `/${mode || RouterPath.ARTISTS}/${start}-${end}/${countries || 'all'}/${
+      genres || 'all'
+    }`;
     navigate(url);
   };
 

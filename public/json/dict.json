@@ -2,7 +2,17 @@
   "countries": [
     {
       "id": 1,
-      "title": "string",
+      "title": "Netherlands",
+      "cities": [
+        {
+          "id": 1,
+          "title": "Eindhoven"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Poland",
       "cities": [
         {
           "id": 1,

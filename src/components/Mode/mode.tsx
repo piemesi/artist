@@ -6,7 +6,7 @@ import './mode.scss';
 import { IUrlRouteParams, RouterPath } from '../../interfaces';
 
 export const Mode = () => {
-  const { genres, mode } = useParams<IUrlRouteParams>();
+  const { genres, mode, countries } = useParams<IUrlRouteParams>();
 
   return (
     <section className={b('mode')}>
@@ -14,7 +14,7 @@ export const Mode = () => {
         className={(state) =>
           b('mode', 'nav', { active: state.isActive || mode === RouterPath.DATES, left: true })
         }
-        to={`/${RouterPath.DATES}/all/${genres || 'all'}`}
+        to={`/${RouterPath.DATES}/all/${countries || 'all'}/${genres || 'all'}`}
       >
         Dates
       </NavLink>
@@ -22,7 +22,7 @@ export const Mode = () => {
         className={(state) =>
           b('mode', 'nav', { active: state.isActive || mode === RouterPath.ARTISTS, right: true })
         }
-        to={`/${RouterPath.ARTISTS}/all/${genres || 'all'}`}
+        to={`/${RouterPath.ARTISTS}/all/${countries || 'all'}/${genres || 'all'}`}
       >
         Artist
       </NavLink>

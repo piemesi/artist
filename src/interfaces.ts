@@ -39,19 +39,22 @@ export interface IPlace {
   address: string;
   lat: number;
   lng: number;
-  city: {
-    id: number;
-    title: string;
-    country: {
-      id: number;
-      title: string;
-    };
-  };
+  city: ICity;
+}
+
+export interface ICountry {
+  id: number;
+  title: string;
+  cities: ICity[];
 }
 
 export interface ICity {
   id: number;
   title: string;
+  country: {
+    id: number;
+    title: string;
+  };
 }
 
 export interface IGenre {
@@ -68,6 +71,13 @@ interface IUrlRoute {
   mode: RouterPath;
   genres: 'all' | string;
   period: 'all' | string;
+  countries: 'all' | string;
+}
+
+export interface IDict {
+  countries: ICountry[];
+  genres: IGenre[];
+  artists: IArtist[];
 }
 
 export type IUrlRouteParams = keyof IUrlRoute;

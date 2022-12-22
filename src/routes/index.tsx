@@ -17,7 +17,7 @@ export const RoutingMap = () => {
       <Route path='/' element={<Layout />}>
         <Route path={`profile/:id`} element={<Profile />} />
 
-        <Route path={`/:mode/:period/:genres`} element={<ModeRouter />} />
+        <Route path={`/:mode/:period/:countries/:genres`} element={<ModeRouter />} />
       </Route>
     </Routes>
   );

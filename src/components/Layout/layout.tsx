@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { Filters } from 'components/Filters/filters';
 import React from 'react';
 import { DatesPicker } from '../DatePicker/date-picker';
+import { Locations } from '../Filters/locations';
 // import { useMediaQuery } from 'react-responsive';
 
 export const Layout = () => {
@@ -13,6 +14,7 @@ export const Layout = () => {
       <Header />
       <Filters />
       <DatesPicker />
+      <Locations />
       {/*<Outlet context={isBigScreen} />*/}
       <Outlet />
     </main>

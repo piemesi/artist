@@ -14,16 +14,15 @@ import { DatesPicker } from '../DatePicker/date-picker';
 
 import './filters.scss';
 import { RouterPath } from '../../interfaces';
-import { Locations } from './locations';
 
-const genresList = [
+const countriesList = [
   {
     id: '1',
-    title: 'StandUp',
+    title: 'Netherlands',
   },
   {
     id: '2',
-    title: 'Music',
+    title: 'Poland',
   },
 ];
 
@@ -31,33 +30,33 @@ const genresList = [
  * @TODO: don't confuse a user - if he tries to unselect all the genres -> probably the output should be emoty with message: "Please select at least one genre"
  */
 
-export const Filters = () => {
+export const Locations = () => {
   const theme = useTheme();
   const navigate = useNavigate();
   const params = useParams();
 
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [location, setLocation] = React.useState<string[]>([]);
 
   useEffect(() => {
-    const { genres } = params;
-    if (!genres) return;
+    const { countries } = params;
+    if (!countries) return;
 
-    if (genres === 'all') {
-      setPersonName(genresList.map(({ id }) => String(id)));
+    if (countries === 'all') {
+      setLocation(countriesList.map(({ id }) => String(id)));
     } else {
-      setPersonName(genres.split(','));
+      setLocation(countries.split(','));
     }
   }, [params]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  const handleChange = (event: SelectChangeEvent<typeof location>) => {
     const {
       target: { value },
     } = event;
 
     const selected = typeof value === 'string' ? value.split(',') : value;
-    const url = `/${RouterPath.ARTISTS}/${params.period}/${params.countries || 'all'}/${
-      selected.length === genresList.length || !selected.length ? 'all' : selected.join(',')
-    }`;
+    const url = `/${RouterPath.ARTISTS}/${params.period}/${
+      selected.length === countriesList.length || !selected.length ? 'all' : selected.join(',')
+    }/${params.genres}`;
 
     navigate(url);
   };
@@ -65,12 +64,12 @@ export const Filters = () => {
   return (
     <section className={b('filters')}>
       <FormControl>
-        <InputLabel id='demo-multiple-chip-label'>Жанр</InputLabel>
+        <InputLabel id='demo-multiple-chip-label'>Страна</InputLabel>
         <Select
           labelId='demo-multiple-chip-label'
           id='demo-multiple-chip'
           multiple
-          value={personName}
+          value={location}
           onChange={handleChange}
           input={<OutlinedInput id='select-multiple-chip' label='Chip' />}
           renderValue={(selected) => (
@@ -78,14 +77,14 @@ export const Filters = () => {
               {selected.map((value) => (
                 <Chip
                   key={value}
-                  label={genresList.find((item) => item.id === value)?.title || ''}
+                  label={countriesList.find((item) => item.id === value)?.title || ''}
                 />
               ))}
             </Box>
           )}
           // MenuProps={MenuProps}
         >
-          {genresList.map(({ id, title }) => (
+          {countriesList.map(({ id, title }) => (
             <MenuItem key={id} value={id}>
               {title}
             </MenuItem>
@@ -93,7 +92,6 @@ export const Filters = () => {
         </Select>
       </FormControl>
       {/*<DatesPicker />*/}
-      {/*<Locations />*/}
     </section>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CardArtist } from '../../components/CardArtist/card-artist';
 
-import { ICard, IUrlRouteParams } from '../../interfaces';
+import { ICard, ICountry, IDict, IUrlRouteParams } from '../../interfaces';
 import { ArtistMobile } from '../../components/MobilePages/ArtistPage/artist-mobile';
 import { useMediaQuery } from 'react-responsive';
 import b from 'b_';
@@ -24,17 +24,27 @@ const transformDayjsString = (day: string, isEnd = false): dayjs.Dayjs =>
 export const Artist = () => {
   const [events, setEvents] = useState<ICard[]>([]);
   const [eventsByArtist, setEventsByArtist] = useState<{ [artistId: string]: ICard[] }>({});
+  const [count, setCountry] = useState<ICountry | undefined>(undefined);
+  const [dict, setDict] = useState<IDict>();
 
-  const { genres, period } = useParams<IUrlRouteParams>();
+  useEffect(() => {}, []);
 
+  const { genres, period, countries } = useParams<IUrlRouteParams>();
+  const { id } = useParams();
   useEffect(() => {
     fetch('/json/events.json')
       .then((res) => res.json())
       .then((res) => {
         setEvents(res.events);
       });
-  }, []);
 
+    fetch('/json/dict.json')
+      .then((res) => res.json())
+      .then((res) => {
+        setDict(res);
+      });
+  }, [id]);
+  console.log(dict);
   useEffect(() => {
     setEventsByArtist(
       events.reduce((acc, event: ICard) => {
@@ -64,6 +74,13 @@ export const Artist = () => {
           );
         }
 
+        if (countries !== 'all') {
+          const selectedCountries = countries!.split(',').map(Number);
+
+          const rr = dict?.countries.filter((country) => selectedCountries.includes(country.id));
+          console.log({ rr });
+        }
+
         eventArtist.forEach((artist) => {
           acc[artist.id] = acc[artist.id] || [];
           acc[artist.id].push(event);
@@ -72,7 +89,7 @@ export const Artist = () => {
         return acc;
       }, {} as { [day: string]: ICard[] }),
     );
-  }, [events, genres, period]);
+  }, [events, genres, period, countries, dict?.countries]);
 
   const isBigScreen = useMediaQuery({ query: '(min-width: 1050px)' });
   return (
