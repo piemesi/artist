@@ -11,6 +11,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import { DatesPicker } from '../DatePicker/date-picker';
+import Input from '@mui/material/Input';
 
 import './filters.scss';
 import { RouterPath } from '../../interfaces';
@@ -62,36 +63,29 @@ export const Locations = () => {
   };
 
   return (
-    <section className={b('filters')}>
-      <FormControl>
-        <InputLabel id='demo-multiple-chip-label'>Страна</InputLabel>
-        <Select
-          labelId='demo-multiple-chip-label'
-          id='demo-multiple-chip'
-          multiple
-          value={location}
-          onChange={handleChange}
-          input={<OutlinedInput id='select-multiple-chip' label='Chip' />}
-          renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip
-                  key={value}
-                  label={countriesList.find((item) => item.id === value)?.title || ''}
-                />
-              ))}
-            </Box>
-          )}
-          // MenuProps={MenuProps}
-        >
-          {countriesList.map(({ id, title }) => (
-            <MenuItem key={id} value={id}>
-              {title}
-            </MenuItem>
+    <Select
+      labelId='demo-multiple-chip-label'
+      id='demo-multiple-chip'
+      multiple
+      value={location}
+      onChange={handleChange}
+      input={<Input />}
+      renderValue={(selected) => (
+        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+          {selected.map((value) => (
+            <Chip
+              key={value}
+              label={countriesList.find((item) => item.id === value)?.title || ''}
+            />
           ))}
-        </Select>
-      </FormControl>
-      {/*<DatesPicker />*/}
-    </section>
+        </Box>
+      )}
+    >
+      {countriesList.map(({ id, title }) => (
+        <MenuItem key={id} value={id}>
+          {title}
+        </MenuItem>
+      ))}
+    </Select>
   );
 };

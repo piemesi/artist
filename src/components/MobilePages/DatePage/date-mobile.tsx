@@ -18,24 +18,24 @@ type IProps = React.PropsWithChildren<{
 
 export const DateMobile = ({ when, events }: IProps) => {
   return (
-    <div>
-      <h3>{dayjs(when).format('D MMMM')}</h3>
+    <div className={b('wrapper')}>
+      <h3 className={b('wrapper', 'current-date')}>{dayjs(when).format('D MMM')}</h3>
       <TableContainer component={Paper} sx={{ boxShadow: 0 }}>
         <Table aria-label='simple table' className={b('table')}>
           <TableBody className={b('table', 'body')}>
             {events.map((row: ICard) => (
               <TableRow className={b('table', 'row')} key={row.id}>
                 <TableCell component='th' scope='row'>
-                  <h3 className={b('table', 'artist')}>{row.artists[0].title}</h3>
+                  <p className={b('table', 'artist')}>{row.artists[0].title}</p>
                   <button className={b('table', 'button')}>От 50 €</button>
                 </TableCell>
-                <TableCell className={b('table', 'time')} align='right'>
+                <TableCell className={b('table', 'time')}>
                   {dayjs(row.when).format('H:mm')}
                 </TableCell>
                 <TableCell align='right'>
                   <h3 className={b('table', 'city')}>{row.place.city.title}</h3>
                   <p className={b('table', 'country')}>{row.place.city.country.title}</p>
-                  <p>{row.place.title}</p>
+                  <p className={b('table', 'place')}>{row.place.title}</p>
                 </TableCell>
               </TableRow>
             ))}

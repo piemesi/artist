@@ -35,13 +35,13 @@ export const ArtistMobile = ({ artistId, events }: IProps) => {
                   <h3 className={b('table', 'date')}>{dayjs(row.when).format('D MMMM')}</h3>
                   <button className={b('table', 'button')}>On 50 €</button>
                 </TableCell>
-                <TableCell className={b('table', 'time')} align='right'>
+                <TableCell className={b('table', 'time')}>
                   {dayjs(row.when).format('H:mm')}
                 </TableCell>
                 <TableCell align='right'>
                   <h3 className={b('table', 'city')}>{row.place.city.title}</h3>
                   <p className={b('table', 'country')}>{row.place.city.country.title}</p>
-                  <p>{row.place.title}</p>
+                  <p className={b('table', 'place')}>{row.place.title}</p>
                 </TableCell>
               </TableRow>
             ))}

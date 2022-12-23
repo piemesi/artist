@@ -24,10 +24,7 @@ const transformDayjsString = (day: string, isEnd = false): dayjs.Dayjs =>
 export const Artist = () => {
   const [events, setEvents] = useState<ICard[]>([]);
   const [eventsByArtist, setEventsByArtist] = useState<{ [artistId: string]: ICard[] }>({});
-  const [count, setCountry] = useState<ICountry | undefined>(undefined);
   const [dict, setDict] = useState<IDict>();
-
-  useEffect(() => {}, []);
 
   const { genres, period, countries } = useParams<IUrlRouteParams>();
   const { id } = useParams();

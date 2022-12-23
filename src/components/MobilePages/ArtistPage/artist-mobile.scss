@@ -1,10 +1,8 @@
 @import 'colors';
 
 .table {
-  font-family: 'IBM Plex Sans';
   font-style: normal;
   min-width: 21.5rem;
-  font-size: 0.875rem;
 
   &__row {
     &:last-child td,
@@ -14,6 +12,8 @@
   }
   &__date {
     font-weight: 400;
+    font-size: 0.875rem;
+    margin: 0.8rem 0 0.625rem;
   }
   &__button {
     background-color: $creamCan;
@@ -26,13 +26,15 @@
   }
   &__city {
     font-weight: 500;
-    margin-bottom: 0;
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
   }
   &__country {
-    color: $emperor;
-    font-size: 14px;
+    font-size: 0.75rem;
     font-style: italic;
-    margin-top: 0;
+    font-weight: 300;
+    margin: 0;
+    color: $emperor;
   }
 }
 .button-follow {

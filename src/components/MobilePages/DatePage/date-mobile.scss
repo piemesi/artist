@@ -1,11 +1,18 @@
 @import 'colors';
-
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__current-date {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+  }
+}
 .table {
-  font-family: 'IBM Plex Sans';
   font-style: normal;
   max-width: 22rem;
   width: 100%;
-  font-size: 0.875rem;
 
   &__row {
     &:last-child td,
@@ -15,6 +22,8 @@
   }
   &__artist {
     font-weight: 400;
+    font-size: 0.875rem;
+    margin: 0.8rem 0 0.625rem;
   }
   &__button {
     background-color: $creamCan;
@@ -25,15 +34,9 @@
     max-width: 5.56rem;
     width: 100%;
   }
-  &__city {
-    font-weight: 500;
-    margin-bottom: 0;
-  }
-  &__country {
-    color: $emperor;
-    font-size: 14px;
-    font-style: italic;
-    margin-top: 0;
+
+  &__place {
+    margin: 0;
   }
 }
 .button-follow {

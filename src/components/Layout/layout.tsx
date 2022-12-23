@@ -13,8 +13,6 @@ export const Layout = () => {
     <main>
       <Header />
       <Filters />
-      <DatesPicker />
-      <Locations />
       {/*<Outlet context={isBigScreen} />*/}
       <Outlet />
     </main>

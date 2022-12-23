@@ -15,6 +15,7 @@ import { DatesPicker } from '../DatePicker/date-picker';
 import './filters.scss';
 import { RouterPath } from '../../interfaces';
 import { Locations } from './locations';
+import Input from '@mui/material/Input';
 
 const genresList = [
   {
@@ -32,7 +33,7 @@ const genresList = [
  */
 
 export const Filters = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -64,26 +65,26 @@ export const Filters = () => {
 
   return (
     <section className={b('filters')}>
-      <FormControl>
-        <InputLabel id='demo-multiple-chip-label'>Жанр</InputLabel>
+      <div className={b('filters', 'wrapper')}>
+        <DatesPicker />
+        <Locations />
         <Select
           labelId='demo-multiple-chip-label'
           id='demo-multiple-chip'
           multiple
           value={personName}
           onChange={handleChange}
-          input={<OutlinedInput id='select-multiple-chip' label='Chip' />}
+          input={<Input />}
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+            <div>
               {selected.map((value) => (
                 <Chip
                   key={value}
                   label={genresList.find((item) => item.id === value)?.title || ''}
                 />
               ))}
-            </Box>
+            </div>
           )}
-          // MenuProps={MenuProps}
         >
           {genresList.map(({ id, title }) => (
             <MenuItem key={id} value={id}>
@@ -91,9 +92,7 @@ export const Filters = () => {
             </MenuItem>
           ))}
         </Select>
-      </FormControl>
-      {/*<DatesPicker />*/}
-      {/*<Locations />*/}
+      </div>
     </section>
   );
 };

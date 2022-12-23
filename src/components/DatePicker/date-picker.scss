@@ -1,12 +1,16 @@
 @import 'colors';
 
 .input {
-  background-color: $white;
-  border-color: $lightGrey;
+  max-width: 9rem;
+  width: 100%;
   border-radius: 3px;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 13px;
-  margin-bottom: 2em;
+  margin-right: 2rem;
+  background-color: rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 15px;
+  color: $black;
 
   &:hover {
     border-color: $black;
@@ -20,3 +24,7 @@
 .ant-picker-range .ant-picker-active-bar {
   background: $creamCan;
 }
+
+//.anticon svg {
+//  display: none;
+//}
