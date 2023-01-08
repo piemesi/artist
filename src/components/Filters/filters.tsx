@@ -56,9 +56,9 @@ export const Filters = () => {
     } = event;
 
     const selected = typeof value === 'string' ? value.split(',') : value;
-    const url = `/${RouterPath.ARTISTS}/${params.period}/${params.countries || 'all'}/${
-      selected.length === genresList.length || !selected.length ? 'all' : selected.join(',')
-    }`;
+    const url = `/${params.mode || RouterPath.ARTISTS}/${params.period}/${
+      params.countries || 'all'
+    }/${selected.length === genresList.length || !selected.length ? 'all' : selected.join(',')}`;
 
     navigate(url);
   };
