@@ -9,7 +9,7 @@ import b from 'b_';
 import { SliderMobile } from '../../components/MobilePages/SliderMobile/slider-mobile';
 import { useParams } from 'react-router-dom';
 
-const transformDayjsString = (day: string, isEnd = false): dayjs.Dayjs =>
+export const transformDayjsString = (day: string, isEnd = false): dayjs.Dayjs =>
   dayjs()
     .set('y', Number('20' + day.substring(0, 2)))
     .set('month', Number(day.substring(2, 4)) - 1)
@@ -50,12 +50,32 @@ export const Date = () => {
             return acc;
           }
         }
-        if (evening !== 'all') {
-          const hour = dayjs(event.when).get('hours');
-          if (hour < 18) {
+
+        if (countries !== 'all') {
+          const selectedCountries = countries!.split(',').map(Number);
+          if (!selectedCountries.includes(event.city.country.id)) {
             return acc;
           }
         }
+
+        if (genres !== 'all') {
+          const selectedGenres = genres!.split(',').map(Number);
+          if (
+            !event.artists.some((artist) =>
+              artist.genres.some((a) => selectedGenres.includes(a.id)),
+            )
+          ) {
+            return acc;
+          }
+        }
+
+        // if (evening !== 'all') {
+        //   const hour = dayjs(event.when).get('hours');
+        //   if (hour < 18) {
+        //     return acc;
+        //   }
+        // }
+
         const day = dayjs(event.when).format('YYYY-MM-DD');
         acc[day] = acc[day] || [];
         acc[day].push(event);
@@ -63,7 +83,7 @@ export const Date = () => {
         return acc;
       }, {} as { [day: string]: ICard[] }),
     );
-  }, [events, period, genres, evening]);
+  }, [events, period, genres, evening, countries]);
 
   const isBigScreen = useMediaQuery({ query: '(min-width: 1050px)' });
 
