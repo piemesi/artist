@@ -6,7 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import dayjs from 'dayjs';
 import Table from '@mui/material/Table';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 type IProps = React.PropsWithChildren<{
   events: ICard[];
@@ -26,7 +26,15 @@ export const CardList = ({
             sx={{ border: 0, py: '0.2rem', px: '1rem' }}
             className={b('events', 'date')}
           >
-            <h3>{isDatePage ? row.artists[0].title : dayjs(row.when).format('D MMMM')}</h3>
+            <h3>
+              {isDatePage ? (
+                <Link to={`/profile/${row.artists[0].id}`} className={b('card', 'profile-link')}>
+                  {row.artists[0].title}
+                </Link>
+              ) : (
+                dayjs(row.when).format('D MMMM')
+              )}
+            </h3>
           </TableCell>
           <TableCell
             sx={{ border: 0, py: '0.2rem', px: '1rem' }}
