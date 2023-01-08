@@ -11,7 +11,9 @@ import { SliderMobile } from '../../components/MobilePages/SliderMobile/slider-m
 import './artist.scss';
 import { useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
+import { useArtistsIDs } from '../../shared/artists-ids-hook';
 
+/** TODO: to common file this method. */
 const transformDayjsString = (day: string, isEnd = false): dayjs.Dayjs =>
   dayjs()
     .set('y', Number('20' + day.substring(0, 2)))
@@ -27,6 +29,8 @@ export const Artist = () => {
 
   const { genres, period, countries, evening, search } = useParams<IUrlRouteParams>();
   const { id } = useParams();
+
+  const artistsIDs = useArtistsIDs();
 
   useEffect(() => {
     fetch('/json/events.json')
@@ -77,6 +81,10 @@ export const Artist = () => {
           );
         }
 
+        if (artistsIDs.length) {
+          eventArtist = eventArtist.filter((artist) => artistsIDs.includes(artist.id));
+        }
+
         // if (evening !== 'all') {
         //   const hour = dayjs(event.when).get('hours');
         //   if (hour < 18) {
@@ -117,9 +125,9 @@ export const Artist = () => {
         });
 
         return acc;
-      }, {} as { [day: string]: ICard[] }),
+      }, {} as { [artistId: string]: ICard[] }),
     );
-  }, [events, genres, period, countries, evening, search]);
+  }, [events, genres, artistsIDs, period, countries, evening, search]);
 
   const isBigScreen = useMediaQuery({ query: '(min-width: 1050px)' });
   return (
