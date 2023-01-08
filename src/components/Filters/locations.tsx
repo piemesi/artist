@@ -15,6 +15,7 @@ import Input from '@mui/material/Input';
 
 import './filters.scss';
 import { RouterPath } from '../../interfaces';
+import { getArtistsIdsQuery, useArtistsIDs } from '../../shared/artists-ids-hook';
 
 const countriesList = [
   {
@@ -37,6 +38,7 @@ export const Locations = () => {
   const params = useParams();
 
   const [location, setLocation] = React.useState<string[]>([]);
+  const artistsIDs = useArtistsIDs();
 
   useEffect(() => {
     const { countries } = params;
@@ -55,9 +57,9 @@ export const Locations = () => {
     } = event;
 
     const selected = typeof value === 'string' ? value.split(',') : value;
-    const url = `/${RouterPath.ARTISTS}/${params.period}/${
+    const url = `/${params.mode || RouterPath.ARTISTS}/${params.period}/${
       selected.length === countriesList.length || !selected.length ? 'all' : selected.join(',')
-    }/${params.genres}`;
+    }/${params.genres}/${getArtistsIdsQuery(artistsIDs)}`;
 
     navigate(url);
   };
