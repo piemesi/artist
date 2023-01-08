@@ -25,6 +25,10 @@
     {
       "id": 1,
       "title": "Stand-up"
+    },
+    {
+      "id": 2,
+      "title": "Music"
     }
   ],
   "artists": [
@@ -56,11 +60,11 @@
       "ig_link": "string",
       "web_link": "string",
       "description": null,
-      "profession": "Стендап комик",
+      "profession": "Musician",
       "genres": [
         {
-          "id": 1,
-          "title": "Stand-up"
+          "id": 2,
+          "title": "Music"
         }
       ]
     },
@@ -74,11 +78,11 @@
       "ig_link": "string",
       "web_link": "string",
       "description": null,
-      "profession": "Стендап комик",
+      "profession": "Musician",
       "genres": [
         {
-          "id": 1,
-          "title": "Stand-up"
+          "id": 2,
+          "title": "Music"
         }
       ]
     },
@@ -103,6 +107,24 @@
     {
       "id": 5,
       "title": "Алексндр Долгополов",
+      "main_img": "https://n1s2.hsmedia.ru/93/43/a3/9343a3ee69e9d3a26a64983966d11afa/480x497_0xac120003_16981973131579787188.jpg",
+      "avatar_img": "string",
+      "yt_link": null,
+      "fb_link": "string",
+      "ig_link": "string",
+      "web_link": "string",
+      "description": null,
+      "profession": "Стендап комик",
+      "genres": [
+        {
+          "id": 1,
+          "title": "Stand-up"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "No Name",
       "main_img": "https://n1s2.hsmedia.ru/93/43/a3/9343a3ee69e9d3a26a64983966d11afa/480x497_0xac120003_16981973131579787188.jpg",
       "avatar_img": "string",
       "yt_link": null,
