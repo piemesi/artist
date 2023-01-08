@@ -6,14 +6,13 @@ import Avatar from '@mui/material/Avatar';
 import favoriteIcon from 'icons/favorite_icon.svg';
 
 import './profile.scss';
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 
 export const Profile = () => {
   const { id } = useParams();
   const [events, setEvents] = useState<ICard[]>([]);
   const [artist, setArtist] = useState<IArtist | undefined>(undefined);
   const [eventsByArtist, setEventsByArtist] = useState<{ [artistId: string]: ICard[] }>({});
-
   useEffect(() => {
     fetch('/json/events.json')
       .then((res) => res.json())
@@ -47,9 +46,6 @@ export const Profile = () => {
     );
   }, [events]);
 
-  const eventsByArtistArr = Object.keys(eventsByArtist).map((artistId) => eventsByArtist[artistId]);
-  // const artist2: IArtist = eventsByArtistArr[0].artists.find(({ id }) => id === artistId)!;
-  const arr = Object.keys(eventsByArtist).map((artistId) => eventsByArtist[id!]);
   return (
     <section className={b('profile')}>
       {artist && (
@@ -67,7 +63,7 @@ export const Profile = () => {
               <button className={b('top', 'follow-btn')}>
                 <a>
                   <img src={favoriteIcon} className={b('top', 'favorite')} />
-                </a>{' '}
+                </a>
                 <span>Подписаться</span>
               </button>
             </div>
@@ -84,7 +80,7 @@ export const Profile = () => {
       <div className={b('bottom')}>
         <span className={b('bottom', 'title')}>{`${artist?.title} - концерты`}</span>
         <div key={id} className={b('bottom', 'content')}>
-          {Object.keys(eventsByArtist).map((artistId) =>
+          {eventsByArtist[id!] &&
             eventsByArtist[id!].map((card) => (
               <div key={card.id}>
                 <hr className={b('bottom', 'break')} />
@@ -106,8 +102,7 @@ export const Profile = () => {
                   <button className={b('bottom', 'button')}>Купить билет</button>
                 </div>
               </div>
-            )),
-          )}
+            ))}
         </div>
       </div>
     </section>

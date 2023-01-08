@@ -1,31 +1,31 @@
 {
   "events": [
     {
-      "id": 1,
+      "id": 0,
       "city": {
-        "id": 1,
-        "title": "Eindhoven",
+        "id": 21,
+        "title": "Krakow",
         "country": {
-          "id": 1,
-          "title": "Netherlands"
+          "id": 2,
+          "title": "Poland"
         }
       },
       "place": {
-        "id": 1,
+        "id": 21,
         "title": "Club",
         "address": "Rich st. 7",
         "lat": 11.2222222,
         "lng": 11.222222,
         "city": {
-          "id": 1,
-          "title": "Eindhoven",
+          "id": 21,
+          "title": "Krakow",
           "country": {
-            "id": 1,
-            "title": "Netherlands"
+            "id": 2,
+            "title": "Poland"
           }
         }
       },
-      "when": "2022-12-01 18:00",
+      "when": "2022-12-01 15:00",
       "tickets": [
         {
           "web_link": "string",
@@ -66,6 +66,73 @@
         }
       ]
     },
+    {
+      "id": 1,
+      "city": {
+        "id": 1,
+        "title": "Eindhoven",
+        "country": {
+          "id": 1,
+          "title": "Netherlands"
+        }
+      },
+      "place": {
+        "id": 1,
+        "title": "Club",
+        "address": "Rich st. 7",
+        "lat": 11.2222222,
+        "lng": 11.222222,
+        "city": {
+          "id": 1,
+          "title": "Eindhoven",
+          "country": {
+            "id": 1,
+            "title": "Netherlands"
+          }
+        }
+      },
+      "when": "2022-12-01 15:00",
+      "tickets": [
+        {
+          "web_link": "string",
+          "title": "string",
+          "price_from": 40.0,
+          "currency": {
+            "id": 1,
+            "title": "EUR"
+          }
+        },
+        {
+          "web_link": "string",
+          "title": "string",
+          "price_from": null,
+          "currency": null
+        }
+      ],
+      "img_path": "string|null",
+      "description": null,
+      "artists": [
+        {
+          "id": 1,
+          "title": "Сергей Орлов",
+          "main_img": "https://icdn.lenta.ru/images/2022/01/20/12/20220120123610279/square_320_1aab847418ed81bff84a1f7feb9fc3f7.jpg",
+          "avatar_img": "string",
+          "yt_link": null,
+          "fb_link": "string",
+          "ig_link": "string",
+          "web_link": "string",
+          "description": null,
+          "profession": "Стендап комик",
+          "genres": [
+            {
+              "id": 1,
+              "title": "Stand-up"
+            }
+          ]
+        }
+      ]
+    },
+
     {
       "id": 2,
       "city": {

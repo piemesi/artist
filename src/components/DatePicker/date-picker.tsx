@@ -11,30 +11,21 @@ import { IUrlRouteParams, RouterPath } from '../../interfaces';
 
 export const DatesPicker = () => {
   const navigate = useNavigate();
-  const { period, genres, mode, countries } = useParams<IUrlRouteParams>();
+  const { genres, mode, countries, evening, search } = useParams<IUrlRouteParams>();
 
   const [startDate, setStartDate] = React.useState<string | null>('');
   const [endDate, setEndDate] = React.useState<string | null>('');
 
   const dateFormat = 'DD/MM';
-  const currentDay = dayjs();
   const handleChange = (dates: RangeValue<Dayjs>, formatString: string[]) => {
-    const start = Object.values(dates!)[0]?.format('YYMD');
+    const start = Object.values(dates!)[0]?.format('YYMMDD');
     setStartDate(start!);
-    const end = Object.values(dates!)[1]?.format('YYMD');
+    const end = Object.values(dates!)[1]?.format('YYMMDD');
     setEndDate(end!);
     const url = `/${mode || RouterPath.ARTISTS}/${start}-${end}/${countries || 'all'}/${
       genres || 'all'
     }`;
     navigate(url);
   };
-
-  return (
-    <RangePicker
-      className={b('input')}
-      onChange={handleChange}
-      format={dateFormat}
-      defaultValue={[dayjs(currentDay, dateFormat), dayjs(currentDay, dateFormat)]}
-    />
-  );
+  return <RangePicker className={b('input')} onChange={handleChange} format={dateFormat} />;
 };

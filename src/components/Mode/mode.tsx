@@ -6,7 +6,7 @@ import './mode.scss';
 import { IUrlRouteParams, RouterPath } from '../../interfaces';
 
 export const Mode = () => {
-  const { genres, mode, countries } = useParams<IUrlRouteParams>();
+  const { genres, mode, countries, evening, search } = useParams<IUrlRouteParams>();
 
   return (
     <section className={b('mode')}>

@@ -1,5 +1,16 @@
 @import 'colors';
-
+.wrapper-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__img {
+    margin-right: 0.5rem;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+}
 .table {
   font-style: normal;
   min-width: 21.5rem;
@@ -23,6 +34,7 @@
     letter-spacing: 0.15px;
     max-width: 5.56rem;
     width: 100%;
+    font-size: 0.75rem;
   }
   &__city {
     font-weight: 500;

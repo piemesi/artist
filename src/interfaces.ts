@@ -5,7 +5,7 @@ export interface ICard {
   artists: IArtist[];
   when: Dayjs;
   place: IPlace;
-  cities: ICity[];
+  city: ICity;
   ticket: ITicket;
 }
 
@@ -72,6 +72,8 @@ interface IUrlRoute {
   genres: 'all' | string;
   period: 'all' | string;
   countries: 'all' | string;
+  evening: 'all' | string;
+  search: '' | string;
 }
 
 export interface IDict {

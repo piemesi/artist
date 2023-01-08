@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import dayjs from 'dayjs';
 import Table from '@mui/material/Table';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 type IProps = React.PropsWithChildren<{
   events: ICard[];

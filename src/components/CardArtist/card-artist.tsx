@@ -20,7 +20,7 @@ export const CardArtist = ({ artistId, events }: IProps) => {
   const artist: IArtist = events[0].artists.find(({ id }) => id === artistId)!;
 
   return (
-    <Card className='card' sx={{ boxShadow: 0, borderRadius: 4 }}>
+    <Card className='card' sx={{ boxShadow: 0, borderRadius: 4 }} key={artistId}>
       <Tooltip title={`Go to ${artist.title} page`} placement='top'>
         <button className={b('card', 'button')}>
           <Link to={`/profile/${artist.id}`} className={b('card', 'profile-link')}>

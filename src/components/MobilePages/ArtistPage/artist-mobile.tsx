@@ -22,11 +22,11 @@ export const ArtistMobile = ({ artistId, events }: IProps) => {
 
   return (
     <div>
-      <Stack direction='column' spacing={2} alignItems='center'>
-        <Avatar alt='current' src={artist.main_img} />
-        <span>{artist.title}</span>
-      </Stack>
-      <TableContainer component={Paper} sx={{ boxShadow: 0 }}>
+      <div className={b('wrapper-avatar')}>
+        <Avatar alt='current' src={artist.main_img} className={b('wrapper-avatar', 'img')} />
+        <span className={b('wrapper-avatar', 'title')}>{artist.title}</span>
+      </div>
+      <TableContainer component={Paper} sx={{ boxShadow: 0 }} key={artist.id}>
         <Table aria-label='simple table' className={b('table')}>
           <TableBody className={b('table', 'body')}>
             {events.map((row: ICard) => (

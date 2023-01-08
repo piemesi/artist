@@ -11,7 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 
 import './events.scss';
 
-export const EventRow = ({ cities, when, ticket, artists, id, place }: ICard) => {
+export const EventRow = ({ when, ticket, artists, id, place }: ICard) => {
   return (
     // <div className='card__events events'>
     //   <div className={b('events', 'date')}>
