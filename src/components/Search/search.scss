@@ -1,6 +1,6 @@
 .search {
   background: #efefef;
-  border-radius: 1em;
+  border-radius: 2.1875rem;
   marginleft: 0;
   max-width: 32.75em;
   position: relative;
@@ -14,9 +14,27 @@
   &__icon {
     color: #979797;
     max-width: 1em;
+    margin: 0 1.2rem 0 1.5rem;
   }
 
   &__input {
     width: 100%;
   }
+}
+.MuiOutlinedInput-notchedOutline.Mui-disabled {
+  border: none;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root {
+  border-radius: 1em;
+  border: none;
+}
+
+.MuiOutlinedInput-root > fieldset {
+  border: none;
+}
+
+.MuiAutocomplete-root {
+  display: flex;
+  width: 90%;
 }

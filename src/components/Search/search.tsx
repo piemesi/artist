@@ -13,6 +13,7 @@ import {
   MAX_SELECTED_OPTIONS,
   useArtistsIDs,
 } from '../../shared/artists-ids-hook';
+import { IconButton } from '@mui/material';
 
 export const Search = () => {
   const navigate = useNavigate();
@@ -84,23 +85,26 @@ export const Search = () => {
       {/*    onChange={handleChange}*/}
       {/*  />*/}
       {/*</div>*/}
+      <div className={b('search', 'wrapper')}>
+        <SearchIcon className={b('search', 'icon')} />
 
-      <Autocomplete
-        multiple
-        limitTags={2}
-        size='small'
-        id='multiple-limit-tags'
-        options={options}
-        getOptionDisabled={(option) =>
-          selected.length >= MAX_SELECTED_OPTIONS && !selectedIDs.includes(option.id)
-        }
-        getOptionLabel={(option: IArtist) => option.title}
-        renderInput={(acParams) => (
-          <TextField {...acParams} label='Search Artist' placeholder='Artist' />
-        )}
-        onChange={handleChange}
-        value={selected}
-      />
+        <Autocomplete
+          multiple
+          limitTags={2}
+          size='small'
+          id='multiple-limit-tags'
+          options={options}
+          getOptionDisabled={(option) =>
+            selected.length >= MAX_SELECTED_OPTIONS && !selectedIDs.includes(option.id)
+          }
+          getOptionLabel={(option: IArtist) => option.title}
+          renderInput={(acParams) => (
+            <TextField className={b('search', 'input')} {...acParams} placeholder='Search Artist' />
+          )}
+          onChange={handleChange}
+          value={selected}
+        />
+      </div>
     </section>
   );
 };

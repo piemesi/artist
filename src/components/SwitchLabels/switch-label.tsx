@@ -18,9 +18,10 @@ export const SwitchLabel = () => {
 
   const [isActive, setIsActive] = useState('evening');
 
+  const [isChecked, setIsChecked] = useState(false);
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const toggle = isActive !== 'evening' ? setIsActive('evening') : setIsActive('all');
-
     // const url = `/${mode || RouterPath.ARTISTS}/${period || 'all'}/${countries || 'all'}/${
     //   genres || 'all'
     // }/${isActive}/${search || 'all'}`;
